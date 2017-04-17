@@ -1,0 +1,41 @@
+.ribbon-title {
+  color: var(--secondary-font-color);
+  font-size: var(--font-secondary-headings);
+  margin-bottom: 30px;
+}
+
+.ribbon-cards-container {
+  display: flex;
+  flex-flow: row nowrap;
+  overflow-x: scroll;
+}
+
+@media (--handsets-n-tablets) {
+  .teaser-ribbon {
+    padding: 30px var(--handset-spacing);
+  }
+
+  .scroll-arrow-wrapper {
+    display: none;
+  }
+}
+
+@media (--desktops) {
+  .teaser-ribbon {
+    padding: 30px var(--desktop-spacing);
+  }
+
+  .ribbon-row-container {
+    position: relative;
+  }
+
+  .scroll-arrow-wrapper {
+    &.left {
+      left: -30px;
+    }
+
+    &.right {
+      right: -30px;
+    }
+  }
+}

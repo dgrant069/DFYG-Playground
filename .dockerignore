@@ -1,0 +1,7 @@
+bower_components
+build
+dist
+node_modules
+test/unit-test-results/**/*
+test/e2e-test-results/**/*
+jenkins

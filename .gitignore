@@ -1,0 +1,23 @@
+node_modules
+npm-debug.log
+.vscode
+
+.idea# Add any directories, files, or patterns you don't want to be tracked by version control
+# dependencies
+node_modules
+
+# testing
+coverage
+
+# production
+build
+
+# dev
+.idea
+.idea/
+
+# misc
+.DS_Store
+.env
+npm-debug.log
+# See http://help.github.com/ignore-files/ for more about ignoring files.

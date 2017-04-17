@@ -1,0 +1,7 @@
+.ad {
+  width: 100%;
+  background: var(--primary-bg-color);
+  color: var(--ad-bg-color);
+  font-size: 11px;
+  padding-bottom: 80px;
+}

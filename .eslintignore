@@ -1,0 +1,11 @@
+# Tells the linter to ignore stuff
+**/*-spec.js
+
+node_modules
+webpack
+test
+karma.*
+public
+static
+component
+
