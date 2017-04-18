@@ -36,7 +36,7 @@
     bottom: 0;
     padding-top: 65px;
     z-index: 99998;
-    background-color: var(--brand-bg-black);
+    background-color: var(--secondary-bg-color-dark);
     overflow-y: scroll;
   }
 
