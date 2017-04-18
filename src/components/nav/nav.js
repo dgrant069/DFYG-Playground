@@ -7,11 +7,7 @@ const Nav = ({ location, layout, closeMobileNav }) => {
   const navLinks = () => {
     const links = [
       { name: 'Home', navTo: '' },
-      { name: 'Watch Now', navTo: 'watchnow' },
-      { name: 'News', navTo: 'news' },
-      { name: 'Sports', navTo: 'sports' },
-      { name: 'Entertainment', navTo: 'entertainment' },
-      { name: 'Kids', navTo: 'kids' }
+      { link1: 'Link 1', navTo: 'link1'}
     ];
 
     return links.map((link, keyId) => {

@@ -61,7 +61,7 @@ class Header extends React.Component {
         </div>
 
         <Link to="/" className={styles.logoWrapper}>
-          <img src="Hummingbird-Logo-Header-Mobile-Web-2x.png" alt="Logo" className={styles.logo}/>
+          <img src="boston_logo.png" alt="Logo" className={styles.logo}/>
         </Link>
 
         <div className={styles.navInlineWrapper}>

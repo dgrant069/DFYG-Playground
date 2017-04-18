@@ -8,7 +8,7 @@ const Footer = () => {
   return (
     <footer className={`${styles.footer} ${styles.appPadding}`}>
       <Link className={styles.footerLogoWrapper}>
-        <img src="Hummingbird-Logo-Header-Mobile-Web-2x.png" alt="Footer logo" className={styles.footerLogo}/>
+        <img src="boston_fart.png" alt="Footer logo" className={styles.footerLogo}/>
       </Link>
 
       <div className={styles.footerNavWrapper} role="navigation">

@@ -1,9 +1,9 @@
 @import '../../styles/variables.css';
-@import '../../styles/main.css';
+@import '../../styles/common.css';
 
 .header {
   height: 65px;
-  background-color: var(--brand-bg-black);
+  background-color: var(--primary-bg-color);
   box-shadow: 0 -2px 3px 0 rgba(0, 0, 0, 0.7);
   color: var(--primary-font-color);
   z-index: 1000;

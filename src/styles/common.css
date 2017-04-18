@@ -16,7 +16,12 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .app {
-  background-color: var(--primary-bg-color);
+  background-color: var(--white-bg);
+  min-height: 100vh;
+}
+
+.main {
+  min-height: 70vh;
 }
 
 @media (--handsets-n-tablets) {

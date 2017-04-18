@@ -9,7 +9,7 @@
 .navListItem {
   &.selected {
     .navLink {
-      border-bottom: solid 3px var(--aqua-accent);
+      border-bottom: solid 3px var(--tertiary-font-color);
     }
   }
 }

@@ -14,32 +14,23 @@
 :root {
   /* Brand Colors */ /*-- Commented names are from styleguide --*/
 
-  /*TODO these are from the styleguide, need to update to reusable vars*/
-  /*--white-three: #dddddd;*/
-  /*--greyish-brown: #444444;*/
-  /*--turquoise-blue: #06b5c9;*/
-
   /* Background Colors*/
-  --primary-bg-color: #13181c;
-  --secondary-bg-color: #282d34; /*--charcoal-grey-two: #282d34;*/
-  --ad-bg-color: #999; /*--warm-grey: #999999;*/
-  --brand-bg-black: #000;
-  --brand-bg-very-dark: #12171b;
-  --footer-bg-color: #1d242a;
-  --video-bar-bg-color: #1c242a;
-  --video-bg-color: #272d34; /*--charcoal-grey: #272d34;*/
+  --primary-bg-color: #999967;
+  --secondary-bg-color: #CCCCCC;
+  --secondary-bg-color-dark: #666666;
+  --accent-bg-color: #CCCC9A;
+  --footer-bg-color: var(--secondary-bg-color-dark);
+  --black-bg: #000;
   --white-bg: #fff;
 
   /* Font Colors */
   --primary-font-color: #fff;
   --secondary-font-color: #efefef;
-  --tertiary-font-color: #ccc; /*--pinkish-grey: #cccccc;*/
-  --secondary-light-font-color: #f0f0f0; /*--white-two: #f0f0f0;*/
+  --tertiary-font-color: #004489; /*--pinkish-grey: #cccccc;*/
 
   /* Theme Colors */
-  --live-label: #c6002a; /*--lipstick-red: #c6002a;*/
-  --gray-accent: #4d555c; /*--gunmetal: #4d555d;*/
-  --aqua-accent: #06d6e6; /*--aqua-blue: #06d6e9;*/
+  --gray-accent: #4d555c;
+  --aqua-accent: #96C0CE;
 
   /* Font Sizes */
   --font-major-headings: 36px;
@@ -54,30 +45,5 @@
   --handset-spacing: 20px;
   --tablet-spacing: 40px;
   --desktop-spacing: 80px;
-
-  /* Features */
-  --scroll-arrows: {
-    color: #c4c4c4;
-    position: absolute;
-    font-size: 25px;
-    outline: none;
-    background: transparent;
-    width: 10px;
-    border: none;
-    top: 40%;
-    text-align: center;
-    padding: 0;
-    cursor: pointer;
-  };
 }
 
-@custom-selector :--scroll-arrows-wrapper .scroll-arrows-wrapper, .right, .left;
-@custom-selector :--enter :hover, :focus;
-
-:--scroll-arrows-wrapper {
-  @apply --scroll-arrows;
-}
-
-:--scroll-arrows-wrapper:--enter {
-  color: var(--primary-font-color);
-}

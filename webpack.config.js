@@ -1,5 +1,3 @@
-/* global __dirname, module */
-
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const ExtractTextPlugin = require("extract-text-webpack-plugin");
@@ -53,16 +51,6 @@ module.exports = {
       // CSS
       {
         test: /\.css$/,
-        // use: [
-        //   'style-loader',
-        //   {
-        //     loader: 'css-loader',
-        //     options: {
-        //       importLoaders: 1
-        //     }
-        //   },
-        //   'postcss-loader'
-        // ]
         use: ExtractTextPlugin.extract({
           fallback: "style-loader",
           loader: [
