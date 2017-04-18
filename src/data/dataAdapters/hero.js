@@ -2,7 +2,6 @@ import uuid from 'uuid/v4';
 import * as _ from 'lodash';
 import { normalize, schema } from 'normalizr';
 
-// TODO possibly consolidate this with the teaserRibbon DA. Lots of dupe code
 // Data from the API is deeply nested and poorly thought through.
 // Requires flattening the response first, creating immutable records, and finally, normalizing it
 const sectionModel = (sliderCard) => {
