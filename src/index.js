@@ -6,7 +6,6 @@ import { Router, browserHistory } from 'react-router';
 import routes from './routes';
 import { syncHistoryWithStore } from 'react-router-redux';
 import configureStore from './data/configureStore';
-import './index.css';
 
 require('es6-promise').polyfill();
 require('isomorphic-fetch');

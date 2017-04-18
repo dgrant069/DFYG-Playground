@@ -6,6 +6,7 @@ module.exports = {
     require('precss')(),
     require('postcss-custom-media')(),
     require('postcss-font-awesome')(),
-    require('postcss-reporter')()
+    require('postcss-reporter')(),
+    require('postcss-modules')({generateScopedName: '[local]'})
   ]
 };

@@ -1,0 +1,17 @@
+@import '../../styles/variables.css';
+
+.test {
+  composes: test from '../../styles/main.css'
+}
+
+@media (--handsets-n-tablets) {
+  .appPadding {
+    composes: appPadding from '../../styles/main.css'
+  }
+}
+
+@media (--desktops) {
+  .appPadding {
+    composes: appPadding from '../../styles/main.css'
+  }
+}

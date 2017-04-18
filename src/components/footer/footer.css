@@ -1,34 +1,37 @@
+@import '../../styles/variables.css';
+@import '../../styles/main.css';
+
 .footer {
   display: flex;
   background-color: var(--footer-bg-color);
 }
 
-.footer-nav-list, .footer-social-list {
+.footerNavList, .footerSocialList {
   list-style: none;
   margin: 0;
   padding: 0;
 }
 
-.footer-nav-list {
+.footerNavList {
   display: flex;
 }
 
-.footer-social-list {
+.footerSocialList {
   display: flex;
   justify-content: space-between;
 }
 
-.footer-nav-split {
+.footerNavSplit {
   padding: 0 10px;
   color: var(--gray-accent);
 }
 
-.footer-social-item {
+.footerSocialItem {
   text-align: center;
   padding: 0 10px;
 }
 
-.footer-nav-link {
+.footerNavLink {
   color: var(--secondary-light-font-color);
   font-size: 14px;
   font-weight: bold;
@@ -39,7 +42,7 @@
   text-decoration: none;
 }
 
-.footer-social-link {
+.footerSocialLink {
   color: var(--secondary-light-font-color);
   background-color: var(--gray-accent);
   width: 45px;
@@ -57,36 +60,36 @@
     justify-content: center;
   }
 
-  .footer-logo-wrapper {
+  .footerLogoWrapper {
     display: none;
   }
 
-  .footer-nav-wrapper {
+  .footerNavWrapper {
     order: 2;
   }
 
-  .footer-social-wrapper {
+  .footerSocialWrapper {
     order: 1;
     margin-bottom: 40px;
   }
 
-  .footer-nav-list {
+  .footerNavList {
     justify-content: center;
     flex-flow: row wrap;
     margin: 0;
   }
 
-  .footer-social-list {
+  .footerSocialList {
     justify-content: center;
     padding: 0;
     margin: 0;
   }
 
-  .footer-nav-item {
+  .footerNavItem {
     padding: 0;
   }
 
-  .footer-nav-link {
+  .footerNavLink {
     font-size: 12px
   }
 }
@@ -100,24 +103,24 @@
     align-items: center;
   }
 
-  .footer-logo {
+  .footerLogo {
     height: 40px;
     margin-left: 0;
   }
 
-  .footer-logo-wrapper, .footer-nav-wrapper, .footer-social-wrapper {
+  .footerLogoWrapper, .footerNavWrapper, .footerSocialWrapper {
     min-width: 175px;
   }
 
-  .footer-nav-wrapper{
+  .footerNavWrapper{
     flex: 1 1 auto;
   }
 
-  .footer-nav-list {
+  .footerNavList {
     justify-content: center;
   }
 
-  .footer-nav-split {
+  .footerNavSplit {
     padding: 0 30px;
   }
 }

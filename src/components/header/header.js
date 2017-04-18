@@ -1,8 +1,9 @@
 import React from 'react';
 import {Link} from 'react-router';
-import classNames from 'classnames';
 
-import Nav from './Nav';
+import Nav from '../nav/nav';
+
+import styles from './header.css';
 
 class Header extends React.Component {
   state = { isMobileNavOpen: false };
@@ -41,28 +42,29 @@ class Header extends React.Component {
   }
 
   render() {
-    const isMobileNavOpen = this.state.isMobileNavOpen;
-    const navMenuWrapper = classNames('nav-menu-wrapper', { 'opened': isMobileNavOpen });
+    const navMenuWrapperOpen = this.state.isMobileNavOpen ? styles.opened : styles.closed;
 
     return (
-      <header className="header app-padding">
-        <div className={navMenuWrapper}>
-          <button className="ion-navicon nav-open-icon nav-menu-icon"
+      <header className={`${styles.header} ${styles.appPadding} ${navMenuWrapperOpen}`}>
+        <div className={styles.navMenuWrapper}>
+          <button className={`ion-navicon ${styles.navOpenIcon} ${styles.navMenuIcon}`}
                   onClick={this.toggleMenu}>
           </button>
-          <button className="ion-android-close nav-close-icon nav-menu-icon"
+          <button className={`ion-android-close ${styles.navCloseIcon} ${styles.navMenuIcon}`}
                   onClick={this.toggleMenu}>
           </button>
-          <Nav location={ location }
-               layout="menu"
-               closeMobileNav={this.navigateClosesNav}/>
+          <div className={styles.navContainer}>
+            <Nav location={ location }
+                 layout="menu"
+                 closeMobileNav={this.navigateClosesNav}/>
+          </div>
         </div>
 
-        <Link to="/" className="logo-wrapper">
-          <img src="Hummingbird-Logo-Header-Mobile-Web-2x.png" alt="Logo" className="logo"/>
+        <Link to="/" className={styles.logoWrapper}>
+          <img src="Hummingbird-Logo-Header-Mobile-Web-2x.png" alt="Logo" className={styles.logo}/>
         </Link>
 
-        <div className="nav-inline-wrapper">
+        <div className={styles.navInlineWrapper}>
           <Nav location={ location } layout="inline"/>
         </div>
       </header>

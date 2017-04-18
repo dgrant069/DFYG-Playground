@@ -1,3 +1,6 @@
+@import '../../styles/variables.css';
+@import '../../styles/main.css';
+
 .header {
   height: 65px;
   background-color: var(--brand-bg-black);
@@ -13,29 +16,47 @@
 }
 
 @media (--handsets-n-tablets) {
-  .nav-menu-wrapper {
+  .navMenuWrapper {
     display: block;
+  }
 
-    &.opened {
-      .nav-container {
-        display: block;
-      }
-
-      .nav-open-icon {
-        display: none;
-      }
-
-      .nav-close-icon {
-        display: block;
-      }
+  .opened {
+    .navContainer {
+      display: block;
     }
 
-    .nav-container {
+    .navOpenIcon {
+      display: none;
+    }
+
+    .navCloseIcon {
+      display: block;
+    }
+
+    .logo {
       display: none;
     }
   }
 
-  .nav-menu-icon {
+  .closed {
+    .navContainer {
+      display: none;
+    }
+
+    .navOpenIcon {
+      display: block;
+    }
+
+    .navCloseIcon {
+      display: none;
+    }
+
+    .logo {
+      display: block;
+    }
+  }
+
+  .navMenuIcon {
     font-size: var(--font-menu-icon);
     margin-right: 15px;
     color: var(--primary-font-color);
@@ -51,37 +72,37 @@
     }
   }
 
-  .nav-open-icon {
+  .navOpenIcon {
     display: block;
   }
 
-  .nav-close-icon {
+  .navCloseIcon {
     display: none;
     position: fixed;
     top: 0;
     z-index: 99999;
   }
 
-  .nav-inline-wrapper {
+  .navInlineWrapper {
     display: none;
   }
 
-  .logo-wrapper {
+  .logoWrapper {
     margin-right: 15px;
     height: 30px;
   }
 }
 
 @media (--desktops) {
-  .nav-menu-wrapper {
+  .navMenuWrapper {
     display: none;
   }
 
-  .nav-inline-wrapper {
+  .navInlineWrapper {
     display: block;
   }
 
-  .logo-wrapper {
+  .logoWrapper {
     margin-right: 70px;
     height: 40px;
   }

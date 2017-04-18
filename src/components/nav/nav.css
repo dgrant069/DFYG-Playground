@@ -1,18 +1,20 @@
-.nav-list {
+@import '../../styles/variables.css';
+
+.navList {
   display: flex;
   list-style: none;
   padding-left: 0;
 }
 
-.nav-list-item {
+.navListItem {
   &.selected {
-    .nav-link {
+    .navLink {
       border-bottom: solid 3px var(--aqua-accent);
     }
   }
 }
 
-.nav-link {
+.navLink {
   margin-left: 0;
   font-weight: bold;
   letter-spacing: 1.2px;
@@ -26,26 +28,26 @@
 }
 
 @media (--handsets-n-tablets) {
-  .nav-container {
-    &.menu {
-      position: fixed;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      padding-top: 65px;
-      z-index: 99998;
-      background-color: var(--brand-bg-black);
-      overflow-y: scroll;
-    }
+  .navContainer.menu {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    padding-top: 65px;
+    z-index: 99998;
+    background-color: var(--brand-bg-black);
+    overflow-y: scroll;
+  }
 
-    .nav-list {
+  .navContainer {
+    .navList {
       flex-flow: column nowrap;
       justify-content: center;
       margin: 0;
     }
 
-    .nav-list-item {
+    .navListItem {
       text-align: center;
       padding: 0 var(--handset-spacing);
       height: 50px;
@@ -54,18 +56,18 @@
       cursor: pointer;
     }
 
-    .nav-link {
+    .navLink {
       padding-bottom: 2px;
     }
   }
 }
 
 @media (--desktops) {
-  .nav-list-item {
+  .navListItem {
     font-size: 12px;
   }
 
-  .nav-link {
+  .navLink {
     padding-bottom: 8px;
     margin-right: 35px;
   }

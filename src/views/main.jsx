@@ -1,12 +1,14 @@
 import React from 'react';
-import Header from '../components/Header';
-import Footer from '../components/Footer';
+import Header from '../components/header/header';
+import Footer from '../components/footer/footer';
+
+import styles from '../styles/main.css';
 
 const Main = ({ children, location }) => {
   return (
-    <div className="App">
+    <div className={styles.App}>
       <Header location={ location } />
-        <main className="main">
+        <main className={styles.main}>
             { children }
         </main>
       <Footer />

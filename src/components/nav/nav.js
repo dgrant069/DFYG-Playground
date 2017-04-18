@@ -1,6 +1,8 @@
 import React from 'react';
 import {IndexLink, Link} from 'react-router';
 
+import styles from './nav.css';
+
 const Nav = ({ location, layout, closeMobileNav }) => {
   const navLinks = () => {
     const links = [
@@ -14,16 +16,19 @@ const Nav = ({ location, layout, closeMobileNav }) => {
 
     return links.map((link, keyId) => {
       return (
-        <li className={`nav-list-item ${location.pathname === `/${link.navTo}` ? 'selected' : ''}`} key={keyId}>
-          <Link to={`/${link.navTo}` } className="nav-link" onClick={closeMobileNav}>{link.name}</Link>
+        <li className={`${styles.navListItem} ${location.pathname === `/${link.navTo}` ? styles.selected : ''}`} key={keyId}>
+          <Link to={`/${link.navTo}` } className={styles.navLink} onClick={closeMobileNav}>{link.name}</Link>
         </li>
       );
     });
   };
 
+  console.log('nav styles', styles);
+  const layoutClass = layout === "menu" ? styles.menu : null;
+
   return (
-    <nav className={`nav-container ${layout}`}>
-      <ul className="nav-list">
+    <nav className={`${styles.navContainer} ${layoutClass}`}>
+      <ul className={styles.navList}>
         {navLinks()}
       </ul>
     </nav>
