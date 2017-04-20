@@ -1,5 +1,5 @@
 import React from 'react';
-import {IndexLink, Link} from 'react-router';
+import {Link} from 'react-router';
 
 import styles from './nav.css';
 
@@ -7,7 +7,7 @@ const Nav = ({ location, layout, closeMobileNav }) => {
   const navLinks = () => {
     const links = [
       { name: 'Home', navTo: '' },
-      { link1: 'Link 1', navTo: 'link1'}
+      { name: 'Link 1', navTo: 'link1'}
     ];
 
     return links.map((link, keyId) => {
@@ -19,7 +19,7 @@ const Nav = ({ location, layout, closeMobileNav }) => {
     });
   };
 
-  console.log('nav styles', styles);
+  console.log('nav styles, %o', styles);
   const layoutClass = layout === "menu" ? styles.menu : null;
 
   return (

@@ -28,16 +28,18 @@
 }
 
 @media (--handsets-n-tablets) {
-  .navContainer.menu {
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    padding-top: 65px;
-    z-index: 99998;
-    background-color: var(--secondary-bg-color-dark);
-    overflow-y: scroll;
+  .navContainer {
+    .menu {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      padding-top: 65px;
+      z-index: 99998;
+      background-color: var(--secondary-bg-color-dark);
+      overflow-y: scroll;
+    }
   }
 
   .navContainer {
