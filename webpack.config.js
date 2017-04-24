@@ -42,6 +42,7 @@ module.exports = {
 
   module: {
     rules: [
+      // JS
       {
         test: /\.jsx?$/,
         loader: 'babel-loader',
@@ -53,7 +54,7 @@ module.exports = {
         test: /\.css$/,
         use: ExtractTextPlugin.extract({
           fallback: "style-loader",
-          loader: [
+          use: [
             {
               loader: 'css-loader',
               options: {
