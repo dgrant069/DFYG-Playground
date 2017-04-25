@@ -13,36 +13,62 @@ import {componentStyles} from './footer.css.js';
 const styles = componentStyles();
 
 class Footer extends React.Component {
+  state = {
+    logoSpun: 0
+  };
+
+  updateState = (event) => {
+    event.preventDefault();
+    this.setState((prevState) => {return {logoSpun: prevState.logoSpun + 1}});
+  };
+
+  bounce = () => {
+    if(this.state.logoSpun < 5){
+      return css.keyframes({
+        '0%': { transform: 'scale(1)'},
+        '60%': { transform: 'scale(1.5) rotateY(180deg)' },
+        '100%': { transform: 'scale(1) rotateY(360deg)' }
+      })
+    } else {
+      return css.keyframes({
+        '0%': { transform: 'scale(1)'},
+        '60%': { transform: 'scale(0.5) rotateX(180deg)' },
+        '100%': { transform: 'scale(1) rotateX(360deg)' }
+      })
+    }
+  };
+
   render(){
-// const Footer = () => {
-console.log("styles, %o", styles);
-  return (
-    <footer className={css(styles.footer)}>
-      <Link className={css(styles.footerLogoWrapper)}>
-        <img src="boston_fart.png" alt="Footer logo" className={css(styles.footerLogo)}/>
-      </Link>
+    console.log("styles, %o", styles);
+    return (
+      <footer className={css(styles.footer)}>
+        <Link className={css(styles.footerLogoWrapper)}>
+          <img src="boston_fart.png" alt="Footer logo"
+               className={css(styles.footerLogo, {':hover': {animation: `${this.bounce()} 3s`}})}
+               onClick={this.updateState}/>
+        </Link>
 
-      <div className={css(styles.footerNavWrapper)} role="navigation">
-        <ul className={css(styles.footerNavList)}>
-          <li className={css(styles.footerNavItem)}><a href="#" className={css(styles.footerNavLink)}>ADVERTISE</a></li>
-          <li className={css(styles.footerNavSplit)}>|</li>
-          <li className={css(styles.footerNavItem)}><a href="#" className={css(styles.footerNavLink)}>PRIVACY</a></li>
-          <li className={css(styles.footerNavSplit)}>|</li>
-          <li className={css(styles.footerNavItem)}><a href="#" className={css(styles.footerNavLink)}>TERMS</a></li>
-          <li className={css(styles.footerNavSplit)}>|</li>
-          <li className={css(styles.footerNavItem)}><a href="#" className={css(styles.footerNavLink)}>COPYRIGHT</a></li>
-        </ul>
-      </div>
+        <div className={css(styles.footerNavWrapper)} role="navigation">
+          <ul className={css(styles.footerNavList)}>
+            <li className={css(styles.footerNavItem)}><a href="#" className={css(styles.footerNavLink)}>ADVERTISE</a></li>
+            <li className={css(styles.footerNavSplit)}>|</li>
+            <li className={css(styles.footerNavItem)}><a href="#" className={css(styles.footerNavLink)}>PRIVACY</a></li>
+            <li className={css(styles.footerNavSplit)}>|</li>
+            <li className={css(styles.footerNavItem)}><a href="#" className={css(styles.footerNavLink)}>TERMS</a></li>
+            <li className={css(styles.footerNavSplit)}>|</li>
+            <li className={css(styles.footerNavItem)}><a href="#" className={css(styles.footerNavLink)}>COPYRIGHT</a></li>
+          </ul>
+        </div>
 
-      <div className={css(styles.footerSocialWrapper)}>
-        <ul className={css(styles.footerSocialList)}>
-          <li className={css(styles.footerSocialItem)}><a href="#" className={css(styles.footerSocialLink)}><i className="ion-social-facebook" aria-hidden="true"></i></a></li>
-          <li className={css(styles.footerSocialItem)}><a href="#" className={css(styles.footerSocialLink)}><i className="ion-social-twitter" aria-hidden="true"></i></a></li>
-          <li className={css(styles.footerSocialItem)}><a href="#" className={css(styles.footerSocialLink)}><i className="ion-social-youtube" aria-hidden="true"></i></a></li>
-        </ul>
-      </div>
-    </footer>
-  );
+        <div className={css(styles.footerSocialWrapper)}>
+          <ul className={css(styles.footerSocialList)}>
+            <li className={css(styles.footerSocialItem)}><a href="#" className={css(styles.footerSocialLink)}><i className="ion-social-facebook" aria-hidden="true"></i></a></li>
+            <li className={css(styles.footerSocialItem)}><a href="#" className={css(styles.footerSocialLink)}><i className="ion-social-twitter" aria-hidden="true"></i></a></li>
+            <li className={css(styles.footerSocialItem)}><a href="#" className={css(styles.footerSocialLink)}><i className="ion-social-youtube" aria-hidden="true"></i></a></li>
+          </ul>
+        </div>
+      </footer>
+    );
   }
 };
 

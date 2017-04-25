@@ -44,8 +44,13 @@ const sharedStyles = {
     textAlign: "center",
   },
 
-  footerNavWrapper: commonPadding,
-  footerLogoWrapper: commonPadding,
+  footerNavWrapper: {
+    padding: "0 10px"
+  },
+  
+  footerLogoWrapper: {
+    padding: "0 10px"
+  },
 
   footerNavLink: {
     color: variables.primaryFontColor,
