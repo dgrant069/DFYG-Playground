@@ -42,6 +42,7 @@ class Header extends React.Component {
   }
 
   render() {
+    console.log("header styles %o", styles);
     const navMenuWrapperOpen = this.state.isMobileNavOpen ? styles.opened : styles.closed;
 
     return (

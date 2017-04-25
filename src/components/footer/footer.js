@@ -23,23 +23,23 @@ class Footer extends React.Component {
   };
 
   bounce = () => {
-    if(this.state.logoSpun < 5){
+    if(this.state.logoSpun < 2){
       return css.keyframes({
-        '0%': { transform: 'scale(1)'},
-        '60%': { transform: 'scale(1.5) rotateY(180deg)' },
+        '0%': { transform: 'scale(1)' },
+        '50%': { transform: 'scale(1.5) rotateY(180deg)' },
         '100%': { transform: 'scale(1) rotateY(360deg)' }
       })
     } else {
       return css.keyframes({
-        '0%': { transform: 'scale(1)'},
-        '60%': { transform: 'scale(0.5) rotateX(180deg)' },
+        '0%': { transform: 'scale(1)' },
+        '50%': { transform: 'scale(1.5) rotateX(180deg)' },
         '100%': { transform: 'scale(1) rotateX(360deg)' }
       })
     }
   };
 
   render(){
-    console.log("styles, %o", styles);
+    console.log("footer styles, %o", styles);
     return (
       <footer className={css(styles.footer)}>
         <Link className={css(styles.footerLogoWrapper)}>

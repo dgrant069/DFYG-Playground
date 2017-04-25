@@ -19,6 +19,7 @@ const Nav = ({ location, layout, closeMobileNav }) => {
     });
   };
 
+  console.log('nav styles, %o', styles);
   const layoutClass = layout === "menu" ? styles.menu : "";
 
   return (
