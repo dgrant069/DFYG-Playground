@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import {connect} from 'react-redux';
 // import {getHeroInfo} from '../data/actions/hero';
 
-import styles from './home.css';
+import styles from './userProfile.css';
 
 // const actions = {
 //   getHeroInfo
@@ -13,21 +13,21 @@ import styles from './home.css';
 //   props.getHeroInfo()
 // };
 
-class Home extends React.Component {
+class UserProfile extends React.Component {
   // componentWillMount() {
   //   loadData(this.props);
   // }
 
   render() {
     return (
-      <section className={`${styles.homeContainer} ${styles.appPadding}`}>
-        <p className={styles.test}>Home</p>
+      <section className={`${styles.userProfileContainer} ${styles.appPadding}`}>
+        <p className={styles.test}>user profile</p>
       </section>
     );
   }
 }
 
-// Home.propTypes = {
+// UserProfile.propTypes = {
 //   heroInfo: PropTypes.object
 // };
 //
@@ -41,6 +41,6 @@ class Home extends React.Component {
 //     return {actions: bindActionCreators(actions, dispatch)}
 // }
 //
-// export default connect(mapStateToProps, actions)(Home);
+// export default connect(mapStateToProps, actions)(UserProfile);
 
-export default Home;
+export default UserProfile;

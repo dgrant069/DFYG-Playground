@@ -7,13 +7,13 @@ const Nav = ({ location, layout, closeMobileNav }) => {
   const navLinks = () => {
     const links = [
       { name: 'Home', navTo: '' },
-      { name: 'Link 1', navTo: 'link1'}
+      { name: 'User', navTo: '/userProfile'}
     ];
 
     return links.map((link, keyId) => {
       return (
         <li className={`${styles.navListItem} ${location.pathname === `/${link.navTo}` ? styles.selected : ''}`} key={keyId}>
-          <Link to={`/${link.navTo}` } className={styles.navLink} onClick={closeMobileNav}>{link.name}</Link>
+          <Link to={`${link.navTo}` } className={styles.navLink} onClick={closeMobileNav}>{link.name}</Link>
         </li>
       );
     });
