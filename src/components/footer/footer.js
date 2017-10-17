@@ -23,7 +23,7 @@ class Footer extends React.Component {
   };
 
   bounce = () => {
-    if(this.state.logoSpun < 2){
+    if(this.state.logoSpun / 2 % 1){
       return css.keyframes({
         '0%': { transform: 'scale(1)' },
         '50%': { transform: 'scale(1.5) rotateY(180deg)' },
