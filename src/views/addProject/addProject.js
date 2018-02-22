@@ -4,8 +4,6 @@ import { connect } from 'react-redux'
 import { Form, Button, Input, Message, TextArea } from 'semantic-ui-react'
 
 import styles from './addProject.css'
-import web3 from '../../../web3/web3'
-import factory from '../../../web3/factory'
 
 class AddProject extends React.Component {
 	state = {
@@ -35,28 +33,8 @@ class AddProject extends React.Component {
 		event.preventDefault()
 
 		this.setState({ loading: true, errorMessage: '' })
-
-		const ether = this.state.ether.toFixed(10)
-		const weiBudget = web3.utils.toWei(ether.toString(), 'ether')
-		try {
-			const accounts = await web3.eth.getAccounts()
-			await factory.methods
-				.createProject(
-					this.state.projectName,
-					this.state.details,
-					this.state.terms,
-					weiBudget,
-				)
-				.send({
-					from: accounts[0],
-				})
-
-			this.setState({ loading: false })
-			this.props.router.push('/')
-		} catch (err) {
-			this.setState({ errorMessage: err.message })
-			this.setState({ loading: false })
-		}
+		this.setState({ loading: false })
+		this.props.router.push('/')
 	}
 
 	handleBudget = (event) => {
