@@ -16,7 +16,7 @@ class Home extends React.Component {
 
 	componentWillMount = async () => {
 		const projects = await factory.methods.getDeployedProjects().call()
-
+		console.log('project list', projects)
 		return this.setState({ projects })
 	}
 
