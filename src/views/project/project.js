@@ -2,18 +2,15 @@ import React from 'react'
 import { Card, Button } from 'semantic-ui-react'
 import { Link } from 'react-router'
 
+import web3 from '../../../web3/web3'
+import ProjectContract from '../../../web3/project'
 import styles from './project.css'
 
 class Project extends React.Component {
 	state = {
-		project: '',
 		cards: [],
 		projectAddress: this.props.router.params.address,
 		errorMessage: '',
-		isAccepted: false,
-		isCompleted: false,
-		isHired: false,
-		isManager: false,
 	}
 
 	componentWillMount = async () => {
@@ -28,9 +25,16 @@ class Project extends React.Component {
 				return this.setState({ errorMessage: error })
 			})
 
+		const project = ProjectContract(this.state.projectAddress)
+		const projectInfo = await project.methods.getProjectInfo().call()
+		console.log('project', project)
+
+		const projectEther = web3.utils.fromWei(projectInfo[3], 'ether')
+		const projectUsd = projectEther * etherConversion
+
 		const cards = [
 			{
-				header: `Project: <PROJECT NAME>`,
+				header: `Project: ${projectInfo[0]}`,
 				meta: 'Project Address:',
 				description: this.state.projectAddress,
 				style: { overflowWrap: 'break-word' },
