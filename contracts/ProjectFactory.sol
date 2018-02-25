@@ -9,12 +9,13 @@ contract ProjectFactory {
         address ProjectAddress
     );
 
-    function createProject(string projectName, string details, string terms, uint budget) public {
-        address newProject = new Project(projectName, details, terms, budget, msg.sender);
+    function createProject(string projectName, string details, string terms) public payable {
+        address newProject = new Project(projectName, details, terms, msg.sender);
         deployedProjects.push(newProject);
+        newProject.transfer(msg.value);
         deployFinished(newProject);
     }
-
+    
     function getDeployedProjects() public view returns(address[]) {
         return deployedProjects;
     }
