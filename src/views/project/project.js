@@ -8,9 +8,13 @@ import styles from './project.css'
 
 class Project extends React.Component {
 	state = {
+		project: ProjectContract(this.props.router.params.address),
 		cards: [],
 		projectAddress: this.props.router.params.address,
 		errorMessage: '',
+		isAccepted: false,
+		isCompleted: false,
+		isManager: false,
 	}
 
 	componentWillMount = async () => {
@@ -25,16 +29,26 @@ class Project extends React.Component {
 				return this.setState({ errorMessage: error })
 			})
 
-		const project = ProjectContract(this.state.projectAddress)
-		const projectInfo = await project.methods.getProjectInfo().call()
-		console.log('project', project)
+		const projectInfo = await this.state.project.methods.getProjectInfo().call()
 
-		const projectEther = web3.utils.fromWei(projectInfo[3], 'ether')
+		const {
+			0: projectName,
+			1: description,
+			2: terms,
+			3: budget,
+			4: manager,
+		} = projectInfo
+
+		const projectEther = web3.utils.fromWei(budget, 'ether')
 		const projectUsd = projectEther * etherConversion
+
+		const accounts = await web3.eth.getAccounts()
+		const isManager = manager === accounts[0]
+		console.log('accounts', accounts)
 
 		const cards = [
 			{
-				header: `Project: ${projectInfo[0]}`,
+				header: `Project: ${projectName}`,
 				meta: 'Project Address:',
 				description: this.state.projectAddress,
 				style: { overflowWrap: 'break-word' },
@@ -43,17 +57,17 @@ class Project extends React.Component {
 			{
 				header: 'Owner',
 				meta: 'Who can approve payments from budget',
-				description: projectInfo[4],
+				description: manager,
 				style: { overflowWrap: 'break-word' },
 			},
 			{
 				header: 'Description',
-				description: projectInfo[1],
+				description: description,
 			},
 			{
 				header: 'Terms and Conditions',
 				meta: 'Also can include project acceptence criteria',
-				description: projectInfo[2],
+				description: terms,
 			},
 			{
 				header: 'Budget',
@@ -62,15 +76,27 @@ class Project extends React.Component {
 			},
 		]
 
-		return this.setState({ cards })
+		return this.setState({ cards, isManager })
 	}
 
-	onAccept = (event) => {
+	onAccept = async (event) => {
 		event.preventDefault()
+
+		await this.state.project.methods.freelancerAccepts().call()
+
+		return this.setState({ isAccepted: true })
 	}
 
-	onCompletion = (event) => {
+	onHire = async (event) => {
 		event.preventDefault()
+
+		await this.state.project.methods.managerHires().call()
+	}
+
+	onCompletion = async (event) => {
+		event.preventDefault()
+
+		await this.state.project.methods.completeProject().call()
 	}
 
 	render() {
@@ -78,10 +104,33 @@ class Project extends React.Component {
 			<section>
 				<Card.Group items={this.state.cards} />
 				<div className={styles.buttonMargin}>
-					<Button onClick={this.onAccept} primary>
+					<Button
+						onClick={this.onAccept}
+						style={{
+							visibility:
+								!this.state.isManager && !this.state.isAccepted
+									? 'visible'
+									: 'hidden',
+						}}
+						primary>
 						Accept Project
 					</Button>
-					<Button onClick={this.onCompletion} primary>
+					<Button
+						onClick={this.onHire}
+						style={{
+							visibility:
+								this.state.isManager && this.state.isAccepted
+									? 'visible'
+									: 'hidden',
+						}}
+						primary>
+						Hire Freelancer
+					</Button>
+
+					<Button
+						onClick={this.onCompletion}
+						style={{ visibility: this.state.isAccepted ? 'visible' : 'hidden' }}
+						primary>
 						Complete Project
 					</Button>
 				</div>
