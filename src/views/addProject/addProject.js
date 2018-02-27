@@ -45,10 +45,10 @@ class AddProject extends React.Component {
 					this.state.projectName,
 					this.state.details,
 					this.state.terms,
-					weiBudget,
 				)
 				.send({
 					from: accounts[0],
+					value: weiBudget,
 				})
 
 			this.setState({ loading: false })
