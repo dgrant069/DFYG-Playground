@@ -103,10 +103,11 @@ class Project extends React.Component {
 		event.preventDefault()
 		const accounts = await web3.eth.getAccounts()
 		const project = this.state.project
-		await project.methods.freelancerAccepts().send({
+		const tx = await project.methods.freelancerAccepts().send({
 			from: accounts[0],
 		})
 
+		console.log('get the tx info', tx)
 		const getProjectState = await this.state.project.methods
 			.getProjectState()
 			.call()
