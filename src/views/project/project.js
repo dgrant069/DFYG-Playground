@@ -86,7 +86,6 @@ class Project extends React.Component {
 				raised: true,
 			},
 		]
-	}
 
 		console.log('original contract state', getProjectState)
 

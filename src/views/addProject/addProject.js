@@ -4,6 +4,8 @@ import { connect } from 'react-redux'
 import { Form, Button, Input, Message, TextArea } from 'semantic-ui-react'
 
 import styles from './addProject.css'
+import web3 from '../../../web3/web3'
+import factory from '../../../web3/factory'
 
 class AddProject extends React.Component {
 	state = {
