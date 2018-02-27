@@ -4,7 +4,6 @@ contract Project {
   string public projectName;
   string public details;
   string public terms;
-  uint public budget; // Not sure what to do with this yet
   address public manager;
   address public freelancer;
   bool public freelancerAccepted;
@@ -19,7 +18,7 @@ contract Project {
     _;
   }
 
-  function() payable {
+  function() payable public {
     LogFundsReceived(msg.sender, msg.value);
   }
 
@@ -48,6 +47,25 @@ contract Project {
       );
   }
 
+  function getProjectParticipants() public view returns(
+    address, address
+    ) {
+      return (
+        manager,
+        freelancer
+      );
+  }
+
+  function getProjectState() public view returns(
+    bool, bool, bool
+    ) {
+      return (
+        freelancerAccepted,
+        managerHired,
+        isCompleted
+      );
+  }
+
   function freelancerAccepts() public {
     require(msg.sender != manager);
     require(!managerHired);
@@ -65,6 +83,8 @@ contract Project {
   function completeProject() public {
     require(msg.sender == freelancer);
     require(managerHired);
+    require(!isCompleted);
+
     freelancer.transfer(this.balance);
     isCompleted = true;
   }

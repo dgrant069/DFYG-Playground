@@ -33,8 +33,28 @@ class AddProject extends React.Component {
 		event.preventDefault()
 
 		this.setState({ loading: true, errorMessage: '' })
-		this.setState({ loading: false })
-		this.props.router.push('/')
+
+		const ether = this.state.ether.toFixed(10)
+		const weiBudget = web3.utils.toWei(ether.toString(), 'ether')
+		try {
+			const accounts = await web3.eth.getAccounts()
+			await factory.methods
+				.createProject(
+					this.state.projectName,
+					this.state.details,
+					this.state.terms,
+				)
+				.send({
+					from: accounts[0],
+					value: weiBudget,
+				})
+
+			this.setState({ loading: false })
+			this.props.router.push('/')
+		} catch (err) {
+			this.setState({ errorMessage: err.message })
+			this.setState({ loading: false })
+		}
 	}
 
 	handleBudget = (event) => {
