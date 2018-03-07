@@ -1,6 +1,8 @@
 node_modules
 npm-debug.log
 .vscode
+envs
+
 
 .idea# Add any directories, files, or patterns you don't want to be tracked by version control
 # dependencies
