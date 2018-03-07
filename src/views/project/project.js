@@ -49,7 +49,6 @@ class Project extends React.Component {
 		const projectUsd = projectEther * etherConversion
 
 		const accounts = await web3.eth.getAccounts()
-		// TODO This is wrong
 		const isManager = manager === accounts[0]
 
 		const cards = [
