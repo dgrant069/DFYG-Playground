@@ -27,6 +27,7 @@
     "extract-text-webpack-plugin": "^2.1.0",
     "file-loader": "^0.10.1",
     "fs-extra": "3.0",
+    "ganache-cli": "^6.0.3",
     "glamor": "^2.20.24",
     "html-webpack-plugin": "^2.28.0",
     "jasmine": "^2.5.3",
